@@ -514,3 +514,4 @@ app.listen(port, () => {
 
 // Track: Seeding script complete
 // Track: JWT validation middleware verified
+// Track: Hashed registrations active
