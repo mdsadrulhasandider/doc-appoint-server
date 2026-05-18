@@ -517,3 +517,4 @@ app.listen(port, () => {
 // Track: Hashed registrations active
 // Track: Profile dashboard integrations
 // Track: Dynamic sorting directory query
+// Track: Secure booking collection CRUD
