@@ -93,7 +93,7 @@ async function run() {
                     id: "d3",
                     name: "Dr. Sarah Jenkins",
                     specialty: "Pediatrician",
-                    image: "https://images.unsplash.com/photo-1594824813573-246434de83fb?auto=format&fit=crop&q=80&w=600",
+                    image: "https://images.unsplash.com/photo-1651008011206-43a479422a57?auto=format&fit=crop&q=80&w=600",
                     experience: "8 years",
                     availability: ["09:00 AM - 11:30 AM", "03:00 PM - 06:00 PM"],
                     description: "Compassionate child specialist focusing on child growth, vaccination, and newborn care.",
@@ -145,6 +145,12 @@ async function run() {
             await doctorsCollection.insertMany(seedDoctors);
             console.log("Seeded database with 6 premium doctor profiles.");
         }
+
+        // DB PATCH: Ensure Dr. Sarah Jenkins (d3) has a guaranteed working female doctor portrait
+        await doctorsCollection.updateOne(
+            { id: "d3" },
+            { $set: { image: "https://images.unsplash.com/photo-1651008011206-43a479422a57?auto=format&fit=crop&q=80&w=600" } }
+        );
 
         // ================= Custom Email/Password Authentication API =================
         
