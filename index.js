@@ -513,3 +513,4 @@ app.listen(port, () => {
 // Dev Commit: Booking collection CRUD
 
 // Track: Seeding script complete
+// Track: JWT validation middleware verified
