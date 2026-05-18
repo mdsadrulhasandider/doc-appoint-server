@@ -516,3 +516,4 @@ app.listen(port, () => {
 // Track: JWT validation middleware verified
 // Track: Hashed registrations active
 // Track: Profile dashboard integrations
+// Track: Dynamic sorting directory query
