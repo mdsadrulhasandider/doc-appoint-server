@@ -4,7 +4,7 @@ Welcome to the **DocAppoint Backend Server**, a fast, secure, and production-rea
 
 🔗 **Client GitHub Repo:** [https://github.com/mdsadrulhasandider/doc-appoint-client](https://github.com/mdsadrulhasandider/doc-appoint-client)  
 🔗 **Server GitHub Repo:** [https://github.com/mdsadrulhasandider/doc-appoint-server](https://github.com/mdsadrulhasandider/doc-appoint-server)  
-🌐 **Live Website Link:** `[YOUR_VERCEL_LIVE_SITE_URL_HERE]` *(e.g., https://docappoint-client.vercel.app)*
+🌐 **Live Website Link:**  https://docappoint-client.vercel.app
 
 ---
 
