@@ -11,10 +11,26 @@ const port = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-    origin: [
-        'http://localhost:5173', // Default React Vite local port
-        'http://127.0.0.1:5173'
-    ],
+    origin: (origin, callback) => {
+        // Allow requests with no origin (like mobile apps, server-to-server)
+        if (!origin) return callback(null, true);
+        
+        const allowedOrigins = [
+            'http://localhost:5173',
+            'http://127.0.0.1:5173',
+            'http://localhost:5174',
+            'http://127.0.0.1:5174',
+            'http://localhost:5175',
+            'http://127.0.0.1:5175'
+        ];
+        
+        // Accept exact match or any localhost/127.0.0.1 port number
+        if (allowedOrigins.indexOf(origin) !== -1 || /^http:\/\/localhost:\d+$/.test(origin) || /^http:\/\/127\.0\.0\.1:\d+$/.test(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
     credentials: true,
     optionsSuccessStatus: 200
 }));
@@ -93,7 +109,7 @@ async function run() {
                     id: "d3",
                     name: "Dr. Sarah Jenkins",
                     specialty: "Pediatrician",
-                    image: "https://images.unsplash.com/photo-1651008011206-43a479422a57?auto=format&fit=crop&q=80&w=600",
+                    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600",
                     experience: "8 years",
                     availability: ["09:00 AM - 11:30 AM", "03:00 PM - 06:00 PM"],
                     description: "Compassionate child specialist focusing on child growth, vaccination, and newborn care.",
@@ -149,7 +165,7 @@ async function run() {
         // DB PATCH: Ensure Dr. Sarah Jenkins (d3) has a guaranteed working female doctor portrait
         await doctorsCollection.updateOne(
             { id: "d3" },
-            { $set: { image: "https://images.unsplash.com/photo-1651008011206-43a479422a57?auto=format&fit=crop&q=80&w=600" } }
+            { $set: { image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600" } }
         );
 
         // ================= Custom Email/Password Authentication API =================
